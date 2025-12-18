@@ -1,0 +1,15 @@
+[package]
+name = "overway"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = "1.0.100"
+clap = { version = "4.5.53", features = ["derive"] }
+exitcode = "1.1.2"
+gdk4 = "0.10.3"
+gtk4 = "0.10.3"
+gtk4-layer-shell = "0.7.1"
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1.0.145"
+webkit6 = "0.5.0"

@@ -31,9 +31,9 @@ cargo run -- -c config.json
 
 This was built on the work of theses awesome people:
 
-anko: [anko/hudkit](https://github.com/anko/hudkit)
-valarnin: [valarnin/hudkit](https://github.com/valarnin/hudkit)
-SparxySys: [SparxySys/hudkit-wayland](https://github.com/SparxySys/hudkit-wayland)
+- anko: [anko/hudkit](https://github.com/anko/hudkit)
+- valarnin: [valarnin/hudkit](https://github.com/valarnin/hudkit)
+- SparxySys: [SparxySys/hudkit-wayland](https://github.com/SparxySys/hudkit-wayland)
 
 ## License
 

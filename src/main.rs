@@ -114,9 +114,11 @@ fn activate_app(app: &Application, config: Config) -> Result<()> {
     // Make the backgound transparent
     let css_provider = CssProvider::new();
     css_provider.load_from_data("window { background-color: rgba(255, 255, 255, 0); }");
-    window
-        .style_context()
-        .add_provider(&css_provider, STYLE_PROVIDER_PRIORITY_APPLICATION);
+    gtk4::style_context_add_provider_for_display(
+        &display,
+        &css_provider,
+        STYLE_PROVIDER_PRIORITY_APPLICATION,
+    );
 
     // Wire up webkitgtk
     let web_context = WebContext::default().context("Failed to init webkit")?;
@@ -135,12 +137,7 @@ fn activate_app(app: &Application, config: Config) -> Result<()> {
     web_view.set_background_color(&RGBA::new(0.0, 0.0, 0.0, 0.0));
     web_view.load_uri(&config.url);
 
-    // We need to put the webview in a ScrolledWindow so we don't get a
-    // 1px sized webview widget
-    let wv_container = ScrolledWindow::new();
-    wv_container.set_policy(PolicyType::Automatic, PolicyType::Automatic);
-    wv_container.set_child(Some(&web_view));
-    window.set_child(Some(&wv_container));
+    window.set_child(Some(&web_view));
 
     // Let the show begin!
     app.add_window(&window);
